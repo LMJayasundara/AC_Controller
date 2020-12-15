@@ -39,4 +39,4 @@ Ex : 192.168.10.1:3000
 ```
 ## Sketch
 
-<img src="./Project/images/Sketch.png" width="1280" height="620">
+<img src="./Project/images/Sketch.png" width="600" height="300">
