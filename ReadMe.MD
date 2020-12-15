@@ -39,4 +39,4 @@ Ex : 192.168.10.1:3000
 ```
 ## Sketch
 
-![](/images/Sketch.png)
+![Images](/Images/Sketch.png)
