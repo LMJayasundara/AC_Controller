@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>server 02</title>
+
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" type="image/png" href="assets/AT-pro-logo.png"/>
+
+	<!-- Import lib -->
+	<link rel="stylesheet" type="text/css" href="./libs/Chart.min.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<!-- End import lib -->
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+	<div class="navbar">
+		<!-- nav left -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="fas fa-bars" onclick="collapseSidebar()"></i>
+				</a>
+			</li>
+		</ul>
+		<!-- end nav left -->
+		<!-- nav right -->
+		<ul class="navbar-nav nav-right">
+			<li class="nav-item mode">
+				<a class="nav-link" href="#" onclick="switchTheme()">
+					<i class="fas fa-moon dark-icon"></i>
+					<i class="fas fa-sun light-icon"></i>
+				</a>
+			</li>
+		</ul>
+		<!-- end nav right -->
+	</div>
+  <!-- end navbar -->
+    
+  <!-- sidebar -->
+	<div class="sidebar">
+		<ul class="sidebar-nav">
+			<li class="sidebar-nav-item">
+				<a href="index.html" class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>
+						AdminPanel
+					</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="server1.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server01</span>
+				</a>
+            </li>
+            <li class="sidebar-nav-item">
+				<a href="server2.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server02</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="server3.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server03</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="setpoint.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>SetPoint</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+  <!-- end sidebar -->
+
+  <div class="wrapper">
+	  
+    <div class="row">
+		<div class="col-12 col-m-12 col-sm-12">
+			<div class="card">
+				<div class="card-content">
+					<form
+						action="/new2"  
+						method="POST"
+					>
+
+						<label for="date">Date</label>
+						<input type="text" id="date" name="day" maxlength="2" class="pin-input"/>
+						<label for="month">Month</label>
+						<input type="text" id="month" name="month" maxlength="2" class="pin-input"/>
+						<label for="year">Year</label>
+						<input type="text" id="year" name="year" maxlength="4" class="pin-input"/>
+						<input id="submit" type="submit" value="Submit" class="myButton">
+						<input id="submit" type="submit" value="Clear" class="myButton">
+
+						<a href="#" class="myButton" id="downloadPdf">Download as PDF</a>
+						<a class="myButtonD" href="/reset2">Delete Database</a>
+
+					</form>
+				</div>
+			</div>
+		</div>
+    </div>
+	
+	<div class="row" id="reportPage">
+		<div class="col-12 col-m-12 col-sm-12">
+			<div class="card">
+				<div class="card-header">
+					<h3>
+						Server 02 Data
+					</h3>
+				</div>
+				<div class="card-content">
+					<canvas id="line-chart2"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </div>
+
+  <script src="./libs/jquery-3.4.1.min.js"></script>
+  <script src="./libs/Chart.min.js"></script>
+  <script src="./libs/socket.io.js"></script>
+  <script src="./libs/jspdf.debug.js"></script>
+  <script src="client.js"></script>
+
+</body>
+
+</html>

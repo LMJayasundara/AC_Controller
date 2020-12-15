@@ -1,0 +1,17 @@
+Raspbery Pi (AI Run On that) X 1     => Rs.10,500.00 X 1    = Rs.10,500.00
+DHT22 Temperature Sensor Module X 3  => Rs.775.00 X 3       = Rs. 2,325.00
+Arduino MEGA X 1                     => Rs.1,950.00 X 1     = Rs. 1,950.00 
+IR Receiver Module X 5               => Rs.40.00 X 5        = Rs.   200.00 
+IR LED X 10                          => Rs. 845+ Rs. 155    = Rs. 1,000.00         
+GSM GPRS Quad-band Module X 1        => Rs.1,650.00 X 1     = Rs. 1,525.00
+
+shipping                                                    = Rs.   500.00
+3D Prnting (If need)  or Others                             = Rs. 2,000.00
+   
+                                       Toatal material cost = Rs.20,000.00
+
+Programming cost (Normaly paid above 150usd in freelancing) = Rs.15,000.00
+
+150 USD in LKR => Rs. 27,664.11
+
+Total                                                       = Rs.35,000.00

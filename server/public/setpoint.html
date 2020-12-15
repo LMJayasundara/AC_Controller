@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>server 01</title>
+
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" type="image/png" href="assets/AT-pro-logo.png"/>
+
+	<!-- Import lib -->
+	<link rel="stylesheet" type="text/css" href="./libs/Chart.min.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<!-- End import lib -->
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+	<div class="navbar">
+		<!-- nav left -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="fas fa-bars" onclick="collapseSidebar()"></i>
+				</a>
+			</li>
+		</ul>
+		<!-- end nav left -->
+		<!-- nav right -->
+		<ul class="navbar-nav nav-right">
+			<li class="nav-item mode">
+				<a class="nav-link" href="#" onclick="switchTheme()">
+					<i class="fas fa-moon dark-icon"></i>
+					<i class="fas fa-sun light-icon"></i>
+				</a>
+			</li>
+		</ul>
+		<!-- end nav right -->
+	</div>
+  <!-- end navbar -->
+
+  <!-- sidebar -->
+	<div class="sidebar">
+		<ul class="sidebar-nav">
+			<li class="sidebar-nav-item">
+				<a href="index.html" class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>
+						AdminPanel
+					</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="server1.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server01</span>
+				</a>
+           </li>
+           <li class="sidebar-nav-item">
+				<a href="server2.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server02</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="server3.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>Server03</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="setpoint.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>SetPoint</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+  <!-- end sidebar -->
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="wrapper">
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-spinner"></i>
+					</p>
+					<h3><span id="date"> Date / Time </span></h3>
+					<p>Date & Time</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<h3>
+						SetPoint 01
+					</h3>
+					<h5>Set Temp :<span id="setpoint1"> 0 </span></h5>
+					<h5>Curr Temp :<span id="temp1"> 0 </span></h5>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-success">
+					<h3>
+						SetPoint 02
+					</h3>
+					<h5>Set Temp :<span id="setpoint2"> 0 </span></h5>
+					<h5>Curr Temp :<span id="temp2"> 0 </span></h5>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<h3>
+						SetPoint 03
+					</h3>
+					<h5>Set Temp :<span id="setpoint3"> 0 </span></h5>
+					<h5>Curr Temp :<span id="temp3"> 0 </span></h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-8 col-m-12 col-xl-12">
+				<div class="card">
+					<div class="card-header">
+						<h3>
+							Cahnge Set Point Temperature
+						</h3>
+						<i class="fas fa-ellipsis-h"></i>
+					</div>
+					<div class="card-content">
+                        <form
+                            action="/set1"
+							method="POST"
+							style="padding-bottom: 5vh; padding-top: 5vh;"
+                        >
+								<label for="date">Server01 SetPoint</label>
+								<input type="text" name="point1" maxlength="5" class="pin-input"/>
+								<input id="submit" type="submit" value="Set" class="myButton">
+
+						</form>
+					</div>
+
+					<div class="card-content">
+                        <form
+                            action="/set2"
+							method="POST"
+							style="padding-bottom: 5vh"
+                            >
+								<label for="month">Server02 SetPoint</label>
+								<input type="text" name="point2" maxlength="5" class="pin-input"/>
+								<input id="submit" type="submit" value="Set" class="myButton">
+						 </form>
+					</div>
+
+					<div class="card-content">
+                        <form
+                            action="/set3"
+							method="POST"
+							style="padding-bottom: 5vh"
+                        >
+								<label for="year">Server03 SetPoint</label>
+								<input type="text" name="point3" maxlength="5" class="pin-input"/>
+								<input id="submit" type="submit" value="Set" class="myButton">
+						</form>
+					</div>
+
+				</div>
+			</div>
+        </div>
+
+	</div>
+	<!-- end main content -->
+	<!-- import script -->
+	<script src="./libs/jquery-3.4.1.min.js"></script>
+    <script src="./libs/Chart.min.js"></script>
+    <script src="./libs/socket.io.js"></script>
+    <script src="client.js"></script>
+	<!-- end import script -->
+	<script>
+		var socket = io();
+		socket.on('sensor', function(data1) {
+			document.getElementById('date').innerHTML = data1.date;
+			document.getElementById('setpoint1').innerHTML = data1.point1;
+			document.getElementById('setpoint2').innerHTML = data1.point2;
+			document.getElementById('setpoint3').innerHTML = data1.point3;
+			document.getElementById('temp1').innerHTML = data1.temp1;
+			document.getElementById('temp2').innerHTML = data1.temp2;
+			document.getElementById('temp3').innerHTML = data1.temp3;
+		});
+	</script>
+</body>
+</html>
