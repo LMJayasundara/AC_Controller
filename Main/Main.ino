@@ -26,8 +26,24 @@ DHT dht1(DHTPIN1, DHTTYPE);
 DHT dht2(DHTPIN2, DHTTYPE);
 DHT dht3(DHTPIN3, DHTTYPE);
 
+#include <Sim800L.h>
+#include <SoftwareSerial.h>               
+
+#define RX  10
+#define TX  11
+
+Sim800L GSM(RX, TX);
+
+char* text;
+char* number;
+bool error; 					//to catch the response of sendSms
+
+int setPoint = 35;
+
 void setup() {
  Serial.begin(9600);
+ GSM.begin(4800); 
+ number="+94704486677";
  Serial.setTimeout(10);
  dht1.begin();
  dht2.begin();
@@ -63,6 +79,20 @@ void loop() {
     Serial.print(F(", \"moisture3\": "));
     Serial.print(h3);
     Serial.println(F("}"));
+  
+    if(t1 > setPoint || t2 > setPoint || t3 > setPoint){
+     
+     if (t1 > setPoint){
+      error=GSM.sendSms(number,"Server 01 temperature too high");
+     }
+     if (t2 > setPoint){
+      error=GSM.sendSms(number,"Server 02 temperature too high");
+     }
+     if (t3 > setPoint){
+      error=GSM.sendSms(number,"Server 03 temperature too high");
+     }
+     
+    }
 }
 
 if(millis() >= time_2 + INTERVAL_MESSAGE2){
