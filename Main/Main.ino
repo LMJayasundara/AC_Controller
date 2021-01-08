@@ -42,7 +42,7 @@ int setPoint = 35;
 
 void setup() {
  Serial.begin(9600);
- GSM.begin(4800); 
+ GSM.begin(9600); 
  number="+94704486677";
  Serial.setTimeout(10);
  dht1.begin();
